@@ -626,8 +626,8 @@
   .pwa-prompt{
     position:fixed;
     left:50%;
-    bottom:calc(16px + env(safe-area-inset-bottom));
-    transform:translateX(-50%) translateY(140%);
+    bottom:calc(-140px - env(safe-area-inset-bottom));
+    transform:translateX(-50%);
     width:calc(100% - 32px);
     max-width:420px;
     background:var(--panel);
@@ -638,13 +638,17 @@
     align-items:center;
     gap:12px;
     box-shadow:0 8px 28px rgba(0,0,0,0.5);
-    z-index:9999;
-    transition:transform .35s ease;
-    pointer-events:none;
+    z-index:99999;
+    transition:bottom .35s ease;
+    visibility:hidden;
   }
   .pwa-prompt.show{
-    transform:translateX(-50%) translateY(0);
-    pointer-events:auto;
+    bottom:calc(16px + env(safe-area-inset-bottom));
+    visibility:visible;
+  }
+  /* Failsafe: if the browser reports standalone display mode, always hide regardless of JS state */
+  @media (display-mode: standalone){
+    .pwa-prompt{ display:none !important; }
   }
   .pwa-prompt-icon{
     flex:0 0 auto;
@@ -669,8 +673,8 @@
     background:transparent;
     border:none;
     color:var(--muted);
-    width:26px;
-    height:26px;
+    width:32px;
+    height:32px;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -679,7 +683,7 @@
     transition:background .15s ease, color .15s ease;
   }
   .pwa-prompt-close:hover{background:var(--panel-2);color:var(--text);}
-  .pwa-prompt-close svg{width:13px;height:13px;fill:currentColor;}
+  .pwa-prompt-close svg{width:13px;height:13px;fill:currentColor;pointer-events:none;}
 </style>
 </head>
 <body>
