@@ -4,6 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>GoalSolver 目標複利器 | CompoundWater</title>
+<meta name="description" content="GoalSolver 是 CompoundWater 開發的複利目標反推計算機。輸入期初本金、每月提撥、時間、實質年化報酬率（EAR）、最終儲蓄目標這 5 個變數中任意 4 個，自動反解第 5 個未知數，並提供成長曲線圖表與可分享的結果圖卡。">
+<meta property="og:title" content="GoalSolver 目標複利器 | CompoundWater">
+<meta property="og:description" content="輸入 4 個已知變數，反推第 5 個——複利目標求解器，內建圖表與可分享結果圖卡。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://compoundwater-goalsolver.vercel.app/">
+<meta property="og:locale" content="zh_TW">
 <meta name="theme-color" content="#0a0a0a">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
@@ -214,6 +220,56 @@
     color:#a8a89f;
   }
   .explainer-body .vars b{color:var(--text);}
+
+  /* FAQ section */
+  .faq-item{
+    border:1px solid var(--line);
+    background:var(--panel);
+    border-radius:var(--radius);
+    margin-bottom:12px;
+  }
+  .faq-item summary{
+    cursor:pointer;
+    padding:16px 20px;
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:600;
+    font-size:15px;
+    color:var(--text);
+    list-style:none;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary::after{
+    content:"+";
+    font-size:18px;
+    color:var(--yellow);
+    flex:0 0 auto;
+  }
+  .faq-item[open] summary::after{content:"−";}
+  .faq-item summary::before{
+    content:"Q";
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    color:#0a0a0a;
+    background:var(--yellow);
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex:0 0 auto;
+    margin-right:10px;
+  }
+  .faq-item .faq-a{
+    padding:0 20px 18px 52px;
+    color:#bdbdb5;
+    font-size:14px;
+    line-height:1.7;
+  }
 
   /* Tool grid */
   .tool-grid{
@@ -761,6 +817,91 @@
     }
   }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "GoalSolver 目標複利器",
+      "alternateName": "CompoundWater GoalSolver",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any (Web, iOS PWA)",
+      "url": "https://compoundwater-goalsolver.vercel.app/",
+      "description": "GoalSolver 是 CompoundWater 開發的複利目標反推計算機。輸入期初本金、每月提撥、時間、實質年化報酬率（EAR）、最終儲蓄目標這 5 個變數中任意 4 個，自動反解第 5 個未知數，並提供成長曲線圖表與可分享的結果圖卡。",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "TWD"
+      },
+      "creator": {
+        "@type": "Organization",
+        "name": "CompoundWater 複水",
+        "alternateName": "CompoundWater",
+        "url": "https://compoundwater.vercel.app/",
+        "sameAs": [
+          "https://x.com/compoundwater",
+          "https://instagram.com/compoundwater",
+          "https://t.me/compoundwater"
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "GoalSolver 是什麼？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "GoalSolver 是 CompoundWater 開發的複利目標反推計算機。任何一個儲蓄或投資目標都由 5 個變數決定：期初本金、每月提撥金額、時間、報酬率、最終儲蓄目標。只要知道其中 4 個，GoalSolver 就能自動反解第 5 個未知數。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "GoalSolver 可以求解哪些變數？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "GoalSolver 可以求解：最終儲蓄金額、每月提撥金額、達成目標所需時間、所需的實質年化報酬率（EAR），或期初本金，五選一反推。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "報酬率欄位裡的 EAR（實質年化報酬率）是什麼，跟名目利率有什麼不同？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "EAR（Effective Annual Rate，實質年化報酬率）是一整年下來實際複利滾出來的報酬率，跟把年利率直接除以 12 的「名目利率」不同。GoalSolver 使用 月報酬率 = (1 + EAR)^(1/12) − 1 來換算月複利，避免低估複利效果。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "GoalSolver 的計算結果有考慮通膨嗎？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "沒有直接內建通膨調整。建議使用者以「今天的幣值」輸入所有金額，並將報酬率設定為扣除通膨後的實質報酬率，這樣算出來的最終金額才會是今天購買力下有意義的數字。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "GoalSolver 的計算結果準確嗎？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "GoalSolver 假設每期投入金額與報酬率維持不變，這是現實的簡化。實際上每月能存的錢會隨生活起伏，投資報酬率更會大幅波動。建議把數字上下微調，並用保守假設額外跑一次最壞情境，計算結果僅供參考，不構成投資建議。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "GoalSolver 可以在 iPhone 上像 App 一樣使用嗎？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "可以。GoalSolver 支援 iOS PWA，用 Safari 開啟後點擊「加入主畫面」，就能像原生 App 一樣全螢幕使用，並保留分頁圖示與捷徑。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -823,6 +964,44 @@
         <p style="color:var(--muted);font-size:13px;">你輸入的報酬率是「實質年化報酬率（Effective Annual Rate, EAR）」——也就是一整年下來真正滾出來的報酬率。換算成月複利時，工具內部會用 <span class="mono">月報酬率 = (1 + EAR)^(1/12) − 1</span> 來反推，而不是單純把年利率除以12，這樣才不會低估複利效果。</p>
         <p style="color:var(--muted);font-size:13px;">提醒：建議用「今天的幣值」輸入所有金額，報酬率也建議用扣除通膨後的實質報酬率,這樣算出來的最終金額才會是「今天購買力」下有意義的數字。</p>
       </div>
+    </details>
+  </section>
+
+  <section data-tab-panel="home">
+    <div class="section-head">
+      <span class="section-num">FAQ</span>
+      <h2>常見問題</h2>
+    </div>
+    <p class="section-sub">關於 GoalSolver 的功能與計算邏輯，這裡整理了幾個常被問到的問題。</p>
+
+    <details class="faq-item">
+      <summary>GoalSolver 是什麼？</summary>
+      <div class="faq-a">GoalSolver 是 CompoundWater 開發的複利目標反推計算機。任何一個儲蓄或投資目標都由 5 個變數決定：期初本金、每月提撥金額、時間、報酬率、最終儲蓄目標。只要知道其中 4 個，GoalSolver 就能自動反解第 5 個未知數。</div>
+    </details>
+
+    <details class="faq-item">
+      <summary>GoalSolver 可以求解哪些變數？</summary>
+      <div class="faq-a">可以求解：最終儲蓄金額、每月提撥金額、達成目標所需時間、所需的實質年化報酬率（EAR），或期初本金，五選一反推。</div>
+    </details>
+
+    <details class="faq-item">
+      <summary>報酬率欄位裡的 EAR（實質年化報酬率）是什麼，跟名目利率有什麼不同？</summary>
+      <div class="faq-a">EAR（Effective Annual Rate，實質年化報酬率）是一整年下來實際複利滾出來的報酬率，跟把年利率直接除以 12 的「名目利率」不同。GoalSolver 使用 <span class="mono">月報酬率 = (1 + EAR)^(1/12) − 1</span> 來換算月複利，避免低估複利效果。</div>
+    </details>
+
+    <details class="faq-item">
+      <summary>計算結果有考慮通膨嗎？</summary>
+      <div class="faq-a">沒有直接內建通膨調整。建議以「今天的幣值」輸入所有金額，並將報酬率設定為扣除通膨後的實質報酬率，這樣算出來的最終金額才會是今天購買力下有意義的數字。</div>
+    </details>
+
+    <details class="faq-item">
+      <summary>GoalSolver 的計算結果準確嗎？</summary>
+      <div class="faq-a">GoalSolver 假設每期投入金額與報酬率維持不變，這是現實的簡化。實際上每月能存的錢會隨生活起伏，投資報酬率更會大幅波動。建議把數字上下微調，並用保守假設額外跑一次最壞情境。計算結果僅供參考，不構成投資建議。</div>
+    </details>
+
+    <details class="faq-item">
+      <summary>可以在 iPhone 上像 App 一樣使用嗎？</summary>
+      <div class="faq-a">可以。GoalSolver 支援 iOS PWA，用 Safari 開啟後點擊「加入主畫面」，就能像原生 App 一樣全螢幕使用，並保留分頁圖示與捷徑。</div>
     </details>
   </section>
 
