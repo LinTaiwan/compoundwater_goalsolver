@@ -967,44 +967,6 @@
     </details>
   </section>
 
-  <section data-tab-panel="home">
-    <div class="section-head">
-      <span class="section-num">FAQ</span>
-      <h2>常見問題</h2>
-    </div>
-    <p class="section-sub">關於 GoalSolver 的功能與計算邏輯，這裡整理了幾個常被問到的問題。</p>
-
-    <details class="faq-item">
-      <summary>GoalSolver 是什麼？</summary>
-      <div class="faq-a">GoalSolver 是 CompoundWater 開發的複利目標反推計算機。任何一個儲蓄或投資目標都由 5 個變數決定：期初本金、每月提撥金額、時間、報酬率、最終儲蓄目標。只要知道其中 4 個，GoalSolver 就能自動反解第 5 個未知數。</div>
-    </details>
-
-    <details class="faq-item">
-      <summary>GoalSolver 可以求解哪些變數？</summary>
-      <div class="faq-a">可以求解：最終儲蓄金額、每月提撥金額、達成目標所需時間、所需的實質年化報酬率（EAR），或期初本金，五選一反推。</div>
-    </details>
-
-    <details class="faq-item">
-      <summary>報酬率欄位裡的 EAR（實質年化報酬率）是什麼，跟名目利率有什麼不同？</summary>
-      <div class="faq-a">EAR（Effective Annual Rate，實質年化報酬率）是一整年下來實際複利滾出來的報酬率，跟把年利率直接除以 12 的「名目利率」不同。GoalSolver 使用 <span class="mono">月報酬率 = (1 + EAR)^(1/12) − 1</span> 來換算月複利，避免低估複利效果。</div>
-    </details>
-
-    <details class="faq-item">
-      <summary>計算結果有考慮通膨嗎？</summary>
-      <div class="faq-a">沒有直接內建通膨調整。建議以「今天的幣值」輸入所有金額，並將報酬率設定為扣除通膨後的實質報酬率，這樣算出來的最終金額才會是今天購買力下有意義的數字。</div>
-    </details>
-
-    <details class="faq-item">
-      <summary>GoalSolver 的計算結果準確嗎？</summary>
-      <div class="faq-a">GoalSolver 假設每期投入金額與報酬率維持不變，這是現實的簡化。實際上每月能存的錢會隨生活起伏，投資報酬率更會大幅波動。建議把數字上下微調，並用保守假設額外跑一次最壞情境。計算結果僅供參考，不構成投資建議。</div>
-    </details>
-
-    <details class="faq-item">
-      <summary>可以在 iPhone 上像 App 一樣使用嗎？</summary>
-      <div class="faq-a">可以。GoalSolver 支援 iOS PWA，用 Safari 開啟後點擊「加入主畫面」，就能像原生 App 一樣全螢幕使用，並保留分頁圖示與捷徑。</div>
-    </details>
-  </section>
-
   <section id="inputResultSection">
     <div class="section-head" data-tab-panel="input">
       <span class="section-num">01</span>
@@ -1105,6 +1067,44 @@
     </div>
   </section>
 </div>
+
+  <section data-tab-panel="home">
+    <div class="section-head">
+      <span class="section-num">FAQ</span>
+      <h2>常見問題</h2>
+    </div>
+    <p class="section-sub">關於 GoalSolver 的功能與計算邏輯，這裡整理了幾個常被問到的問題。</p>
+
+    <details class="faq-item">
+      <summary>GoalSolver 是什麼？</summary>
+      <div class="faq-a">GoalSolver 是 CompoundWater 開發的複利目標反推計算機。任何一個儲蓄或投資目標都由 5 個變數決定：期初本金、每月提撥金額、時間、報酬率、最終儲蓄目標。只要知道其中 4 個，GoalSolver 就能自動反解第 5 個未知數。</div>
+    </details>
+
+    <details class="faq-item">
+      <summary>GoalSolver 可以求解哪些變數？</summary>
+      <div class="faq-a">可以求解：最終儲蓄金額、每月提撥金額、達成目標所需時間、所需的實質年化報酬率（EAR），或期初本金，五選一反推。</div>
+    </details>
+
+    <details class="faq-item">
+      <summary>報酬率欄位裡的 EAR（實質年化報酬率）是什麼，跟名目利率有什麼不同？</summary>
+      <div class="faq-a">EAR（Effective Annual Rate，實質年化報酬率）是一整年下來實際複利滾出來的報酬率，跟把年利率直接除以 12 的「名目利率」不同。GoalSolver 使用 <span class="mono">月報酬率 = (1 + EAR)^(1/12) − 1</span> 來換算月複利，避免低估複利效果。</div>
+    </details>
+
+    <details class="faq-item">
+      <summary>計算結果有考慮通膨嗎？</summary>
+      <div class="faq-a">沒有直接內建通膨調整。建議以「今天的幣值」輸入所有金額，並將報酬率設定為扣除通膨後的實質報酬率，這樣算出來的最終金額才會是今天購買力下有意義的數字。</div>
+    </details>
+
+    <details class="faq-item">
+      <summary>GoalSolver 的計算結果準確嗎？</summary>
+      <div class="faq-a">GoalSolver 假設每期投入金額與報酬率維持不變，這是現實的簡化。實際上每月能存的錢會隨生活起伏，投資報酬率更會大幅波動。建議把數字上下微調，並用保守假設額外跑一次最壞情境。計算結果僅供參考，不構成投資建議。</div>
+    </details>
+
+    <details class="faq-item">
+      <summary>可以在 iPhone 上像 App 一樣使用嗎？</summary>
+      <div class="faq-a">可以。GoalSolver 支援 iOS PWA，用 Safari 開啟後點擊「加入主畫面」，就能像原生 App 一樣全螢幕使用，並保留分頁圖示與捷徑。</div>
+    </details>
+  </section>
 
 <footer data-tab-panel="result">
   <p class="disclaimer">本站提供之結果僅供參考。</p>
